@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:cardCornerRadius="16dp"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="250dp"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/rate_btn"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:background="@drawable/common_selectable_transparent"
+                app:drawableLeftCompat="@drawable/setting_rate_star_icon"
+                android:drawablePadding="16dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/medium"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:singleLine="true"
+                android:text="@string/rate_us"
+                android:textColor="@color/item_audio_title_color"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/auto_download_btn"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:background="@drawable/common_selectable_transparent"
+                 app:drawableLeftCompat="@drawable/setting_download_icon"
+                android:drawablePadding="16dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/medium"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:paddingRight="54dp"
+                android:singleLine="true"
+                android:text="@string/auto_download"
+                android:textColor="@color/item_audio_title_color"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line_rate_us" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/dark_mode_btn"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:background="@drawable/common_selectable_transparent"
+                 app:drawableLeftCompat="@drawable/setting_dark_mode_icon"
+                android:drawablePadding="16dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/medium"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:paddingRight="54dp"
+                android:singleLine="true"
+                android:text="@string/dark_mode"
+                android:textColor="@color/item_audio_title_color"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line_auto_download" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/disclaimer_btn"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:background="@drawable/common_selectable_transparent"
+                 app:drawableLeftCompat="@drawable/setting_disclaimer_icon"
+                android:drawablePadding="16dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/medium"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:singleLine="true"
+                android:text="@string/disclaimer"
+                android:textColor="@color/item_audio_title_color"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line_dark_mode" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/privacy_btn"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:background="@drawable/common_selectable_transparent"
+                 app:drawableLeftCompat="@drawable/setting_privacy_icon"
+                android:drawablePadding="16dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/medium"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:singleLine="true"
+                android:text="@string/privacy_and_policy"
+                android:textColor="@color/item_audio_title_color"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line_disclaimer" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/fanpage_btn"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:background="@drawable/common_selectable_transparent"
+                 app:drawableLeftCompat="@drawable/home_like_icon"
+                android:drawablePadding="16dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/medium"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:singleLine="true"
+                android:text="@string/like_fanpage"
+                android:textColor="@color/item_audio_title_color"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line_fanpage" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/update_btn"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:background="@drawable/common_selectable_transparent"
+                app:drawableLeftCompat="@drawable/setting_update_icon"
+                android:drawablePadding="16dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/medium"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:singleLine="true"
+                android:text="@string/update_app"
+                android:textColor="@color/item_audio_title_color"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line_update_app" />
+
+            <View
+                android:id="@+id/line_rate_us"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/item_catch_line_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rate_btn" />
+
+            <View
+                android:id="@+id/line_auto_download"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/item_catch_line_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/auto_download_btn" />
+
+            <View
+                android:id="@+id/line_dark_mode"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/item_catch_line_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dark_mode_btn" />
+
+            <View
+                android:id="@+id/line_disclaimer"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/item_catch_line_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/disclaimer_btn" />
+
+            <View
+                android:id="@+id/line_update_app"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/item_catch_line_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/privacy_btn" />
+
+            <View
+                android:id="@+id/line_fanpage"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/item_catch_line_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/update_btn" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/auto_download_switch"
+                android:layout_width="54dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintBottom_toTopOf="@+id/line_auto_download"
+                app:layout_constraintEnd_toEndOf="@+id/auto_download_btn"
+                app:layout_constraintTop_toTopOf="@+id/auto_download_btn" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/dark_mode_switch"
+                android:layout_width="54dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/dark_mode_btn"
+                app:layout_constraintEnd_toEndOf="@+id/dark_mode_btn"
+                app:layout_constraintTop_toTopOf="@+id/dark_mode_btn" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

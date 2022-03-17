@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/top_gradient"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@drawable/home_top_item_gradient"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/download_selectable_item_bg"
+        app:layout_constraintBottom_toTopOf="@id/bottom_gradient"
+        app:layout_constraintTop_toBottomOf="@id/top_gradient">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cover_bound_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/common_selectable_transparent"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/cover_video"
+                    android:layout_width="100dp"
+                    android:layout_height="126dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/play_img"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/common_selectable_transparent"
+                    android:scaleType="centerInside"
+                    app:layout_constraintBottom_toBottomOf="@+id/cover_video"
+                    app:layout_constraintEnd_toEndOf="@+id/cover_video"
+                    app:layout_constraintStart_toStartOf="@+id/cover_video"
+                    app:layout_constraintTop_toTopOf="@+id/cover_video"
+                    app:srcCompat="@drawable/home_item_play_icon" />
+
+                <View
+                    android:id="@+id/duration_bg"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/home_item_duration_gradient_bg"
+                    app:layout_constraintBottom_toBottomOf="@+id/cover_video"
+                    app:layout_constraintEnd_toEndOf="@+id/cover_video"
+                    app:layout_constraintStart_toStartOf="@+id/cover_video" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/duration_video_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:gravity="start"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="14dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/duration_bg"
+                    app:layout_constraintEnd_toEndOf="@+id/duration_bg"
+                    app:layout_constraintStart_toStartOf="@+id/duration_bg"
+                    tools:text="00:00:00" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/bold"
+            android:maxLines="2"
+            android:textColor="@color/item_video_title_color"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toStartOf="@id/more"
+            app:layout_constraintStart_toEndOf="@+id/cover_bound_video"
+            app:layout_constraintTop_toTopOf="@+id/cover_bound_video"
+            tools:text="Video Chúng tôi làm những con bò ò ò ò ò ò ò" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/author"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/regular"
+            android:maxLines="1"
+            android:textColor="@color/item_video_title_color"
+            android:textSize="14dp"
+            app:layout_constraintEnd_toEndOf="@+id/title"
+            app:layout_constraintStart_toStartOf="@+id/title"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            tools:text="lebong" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:background="@drawable/video_no_watermark_text_bg"
+            android:fontFamily="@font/bold"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/no_watermark"
+            android:textColor="@color/item_video_type_text_color"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/cover_bound_video"
+            app:layout_constraintStart_toStartOf="@+id/title" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/more"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackground"
+            android:scaleType="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/video_item_more_icon" />
+
+        <View
+            android:id="@+id/padding_layout"
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cover_bound" />
+
+        <View
+            android:id="@+id/padding_bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/type" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/bottom_gradient"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@drawable/home_bottom_item_gradient"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

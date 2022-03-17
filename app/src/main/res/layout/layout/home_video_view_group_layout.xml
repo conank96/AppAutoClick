@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/download_btn"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:background="@drawable/home_item_download_no_watermark_button_selector"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/download_icon_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginLeft="22dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/download_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:text="@string/no_watermark"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/ad_view"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/download_ad_bg"
+                android:fontFamily="@font/bold"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:text="AD"
+                android:textColor="#fff"
+                android:textSize="12dp"
+                app:layout_constraintStart_toEndOf="@id/download_txt"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/downloading_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/home_video_downloading_bg"
+            android:paddingTop="36dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="gone">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/downloading_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/state_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/medium"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="@string/video_has_been_downloaded"
+                    android:textColor="@color/home_color_inside_title_text"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="@font/regular"
+                    android:gravity="center_vertical|start"
+                    android:textColor="@color/home_color_inside_title_text"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toStartOf="@+id/percent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/pending"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/percent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/regular"
+                    android:gravity="center_vertical|end"
+                    android:textColor="@color/home_color_inside_title_text"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/status"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/status"
+                    app:layout_constraintTop_toTopOf="@+id/status"
+                    tools:text="100%"
+                    tools:visibility="visible" />
+
+                <com.example.tiktok.ui.DownloadProgressView
+                    android:id="@+id/progress"
+                    android:layout_width="0dp"
+                    android:layout_height="7dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="16dp"
+                    app:background_color="@color/progress_bg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/status"
+                    tools:visibility="visible" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/line_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/home_color_inside_line"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/downloading_status" />
+
+            <View
+                android:id="@+id/pause_resume"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:background="@drawable/home_item_video_inside_button_selectable"
+                app:layout_constraintEnd_toStartOf="@+id/cancel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line_horizontal" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/pause_resume_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="4dp"
+                android:fontFamily="@font/medium"
+                android:text="@string/resume"
+                android:textColor="@color/home_color_inside_play_text"
+                android:textSize="16dp"
+                app:drawableLeftCompat="@drawable/home_catch_item_resume_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/pause_resume"
+                app:layout_constraintEnd_toEndOf="@+id/pause_resume"
+                app:layout_constraintStart_toStartOf="@+id/pause_resume"
+                app:layout_constraintTop_toTopOf="@+id/pause_resume" />
+
+            <View
+                android:id="@+id/line_vertical"
+                android:layout_width="1dp"
+                android:layout_height="32dp"
+                android:background="@color/home_color_inside_line"
+                app:layout_constraintBottom_toBottomOf="@+id/pause_resume"
+                app:layout_constraintEnd_toStartOf="@+id/cancel"
+                app:layout_constraintStart_toEndOf="@+id/pause_resume"
+                app:layout_constraintTop_toTopOf="@+id/pause_resume" />
+
+            <View
+                android:id="@+id/cancel"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:background="@drawable/home_item_video_inside_button_selectable"
+                app:layout_constraintBottom_toBottomOf="@+id/pause_resume"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/pause_resume"
+                app:layout_constraintTop_toTopOf="@+id/pause_resume" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cancel_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="4dp"
+                android:fontFamily="@font/medium"
+                android:text="@string/delete"
+                android:textColor="@color/item_audio_delete_text"
+                android:textSize="16dp"
+                app:drawableLeftCompat="@drawable/home_item_trash_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/cancel"
+                app:layout_constraintEnd_toEndOf="@+id/cancel"
+                app:layout_constraintStart_toStartOf="@+id/cancel"
+                app:layout_constraintTop_toTopOf="@+id/cancel" />
+
+            <View
+                android:id="@+id/play"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:background="@drawable/home_item_video_inside_button_selectable"
+                app:layout_constraintEnd_toStartOf="@+id/share"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line_horizontal" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/play_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="4dp"
+                android:fontFamily="@font/medium"
+                android:text="@string/play"
+                android:textColor="@color/home_color_inside_play_text"
+                android:textSize="16dp"
+                app:drawableLeftCompat="@drawable/home_catch_item_play_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/play"
+                app:layout_constraintEnd_toEndOf="@+id/play"
+                app:layout_constraintStart_toStartOf="@+id/play"
+                app:layout_constraintTop_toTopOf="@+id/play" />
+
+            <View
+                android:id="@+id/line_vertical_2"
+                android:layout_width="1dp"
+                android:layout_height="32dp"
+                android:background="@color/home_color_inside_line"
+                app:layout_constraintBottom_toBottomOf="@+id/play"
+                app:layout_constraintEnd_toStartOf="@+id/share"
+                app:layout_constraintStart_toEndOf="@+id/play"
+                app:layout_constraintTop_toTopOf="@+id/play" />
+
+            <View
+                android:id="@+id/share"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:background="@drawable/home_item_video_inside_button_selectable"
+                app:layout_constraintBottom_toBottomOf="@+id/play"
+                app:layout_constraintEnd_toEndOf="@+id/delete"
+                app:layout_constraintStart_toEndOf="@+id/play"
+                app:layout_constraintTop_toTopOf="@+id/play" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/share_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="4dp"
+                android:fontFamily="@font/medium"
+                android:text="@string/share"
+                android:textColor="@color/item_catch_share_color"
+                android:textSize="16dp"
+                app:drawableLeftCompat="@drawable/home_item_share_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/share"
+                app:layout_constraintEnd_toEndOf="@+id/share"
+                app:layout_constraintStart_toStartOf="@+id/share"
+                app:layout_constraintTop_toTopOf="@+id/share" />
+
+            <View
+                android:id="@+id/line_vertical_3"
+                android:layout_width="1dp"
+                android:layout_height="32dp"
+                android:background="@color/home_color_inside_line"
+                app:layout_constraintBottom_toBottomOf="@+id/play"
+                app:layout_constraintEnd_toStartOf="@+id/delete"
+                app:layout_constraintStart_toEndOf="@+id/share"
+                app:layout_constraintTop_toTopOf="@+id/play" />
+
+            <View
+                android:id="@+id/delete"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:background="@drawable/home_item_video_inside_button_selectable"
+                app:layout_constraintBottom_toBottomOf="@+id/play"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/share"
+                app:layout_constraintTop_toTopOf="@+id/play" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/delete_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="4dp"
+                android:fontFamily="@font/medium"
+                android:text="@string/delete"
+                android:textColor="@color/item_audio_delete_text"
+                android:textSize="16dp"
+                app:drawableLeftCompat="@drawable/home_item_trash_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/delete"
+                app:layout_constraintEnd_toEndOf="@+id/delete"
+                app:layout_constraintStart_toStartOf="@+id/delete"
+                app:layout_constraintTop_toTopOf="@+id/delete" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/downloading_title"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/home_item_download_no_watermark_button_no_select_bg"
+            android:paddingLeft="12dp"
+            android:paddingRight="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="gone">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/state_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/home_item_downloaded_icon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/watermark"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/state_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

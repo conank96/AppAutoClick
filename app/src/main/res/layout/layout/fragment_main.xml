@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        paddingBottomSystemWindowInsets="@{true}"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/navigation_bottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/navigation_bottom"
+            android:background="@color/navigation_color_bottom_bg"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/navigation_selectable_item_bg"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/download"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/main_navigation_home_icon_selector" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/download"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/navigation_selectable_item_bg"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@+id/home"
+                app:layout_constraintEnd_toStartOf="@+id/trending"
+                app:layout_constraintStart_toEndOf="@+id/home"
+                app:layout_constraintTop_toTopOf="@+id/home"
+                app:srcCompat="@drawable/main_navigation_download_icon_selector" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/trending"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/navigation_selectable_item_bg"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@+id/home"
+                app:layout_constraintEnd_toStartOf="@+id/discover"
+                app:layout_constraintStart_toEndOf="@+id/download"
+                app:layout_constraintTop_toTopOf="@+id/home"
+                app:srcCompat="@drawable/main_navigation_trending_icon_selector" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/discover"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/navigation_selectable_item_bg"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@+id/home"
+                app:layout_constraintEnd_toStartOf="@id/search"
+                app:layout_constraintStart_toEndOf="@+id/trending"
+                app:layout_constraintTop_toTopOf="@+id/home"
+                app:srcCompat="@drawable/main_navigation_trend_icon_selector" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/search"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/navigation_selectable_item_bg"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@+id/home"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/discover"
+                app:layout_constraintTop_toTopOf="@+id/home"
+                app:srcCompat="@drawable/main_navigation_discover_icon_selector" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/navigation_color_line"
+            app:layout_constraintTop_toTopOf="@+id/navigation_bottom"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

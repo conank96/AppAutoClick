@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/player_activity_error_bg"
+    app:layoutDescription="@xml/player_motion_layout_scene"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/player_tutorial_view_icon" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/play_top_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/display"
+        app:layout_constraintEnd_toEndOf="@id/display"
+        app:layout_constraintStart_toStartOf="@id/display"
+        app:layout_constraintTop_toTopOf="@id/display"
+        app:srcCompat="@drawable/player_tutorial_play_icon" />
+
+    <View
+        android:id="@+id/line_bottom"
+        android:layout_width="64dp"
+        android:layout_height="1px"
+        android:layout_marginBottom="13dp"
+        android:background="@color/player_tutorial_line_horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/display"
+        app:layout_constraintEnd_toEndOf="@id/display"
+        app:layout_constraintStart_toStartOf="@id/display" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/play_below_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"
+        android:translationY="64dp"
+        app:layout_constraintBottom_toBottomOf="@id/display"
+        app:layout_constraintEnd_toEndOf="@id/display"
+        app:layout_constraintStart_toStartOf="@id/display"
+        app:layout_constraintTop_toTopOf="@id/display"
+        app:srcCompat="@drawable/player_tutorial_play_icon" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/hand_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
+        android:layout_marginBottom="64dp"
+        android:rotation="-95"
+        android:transformPivotX="52dp"
+        android:transformPivotY="89dp"
+        app:elevation="4dp"
+        app:layout_constraintBottom_toBottomOf="@id/display"
+        app:layout_constraintStart_toEndOf="@id/display"
+        app:layout_constraintTop_toTopOf="@id/display"
+        app:srcCompat="@drawable/player_tutorial_hand_icon" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tutorial_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/bold"
+        android:gravity="center"
+        android:text="@string/swipe_up_to_see_more"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/display" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

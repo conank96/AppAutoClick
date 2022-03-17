@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The maximum size for all names (clicks and scenarios) -->
+    <integer name="name_max_length">60</integer>
+    <!-- The minimum zoom value for the capture overlay view -->
+    <item name="capture_minimum_zoom" format="float" type="integer">0.8</item>
+    <!-- The maximum zoom value for the capture overlay view -->
+    <item name="capture_maximum_zoom" format="float" type="integer">5.0</item>
+    <item name="alpha_menu_item_disabled" type="dimen">40%</item>
+    <item name="btn_move" type="id"/>
+    <!-- Id for the hide button in the OverlayMenuController -->
+    <item name="btn_hide_overlay" type="id"/>
+    <!-- Id for the color of the hints. -->
+    <item name="overlayViewPrimary1" type="color" />
+</resources>

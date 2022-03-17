@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/view_top_gradient"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@drawable/home_top_item_gradient"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/parent_ct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/home_tutorial_background"
+            app:layout_constraintTop_toBottomOf="@+id/view_top_gradient">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/header_tutorial_tv"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:fontFamily="@font/bold"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/tutorial_padding_item"
+                android:text="@string/how_to_download_video_tutorial_item"
+                android:textColor="@color/home_tutorial_text_item"
+                android:textSize="@dimen/tutorial_text_size_header_item"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/expand_iv"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/expand_iv"
+                android:layout_width="@dimen/tutorial_weight_expand_iv"
+                android:layout_height="@dimen/tutorial_weight_expand_iv"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@+id/header_tutorial_tv"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/header_tutorial_tv"
+                app:srcCompat="@drawable/home_narrow_icon"
+                tools:ignore="VectorDrawableCompat" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/expand_ct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/tutorial_padding_item"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/expand_iv">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/number_1_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/item_tutorial_number_bg"
+                    android:fontFamily="@font/medium"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/home_tutorial_number_step_text"
+                    android:textSize="@dimen/tutorial_text_size_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/tutorial_padding_item_text"
+                    android:text="@string/open_tiktok_and_copy_link_tutorial_item"
+                    android:textColor="@color/home_tutorial_text_item"
+                    android:textSize="@dimen/tutorial_text_size_content"
+                    app:layout_constraintBottom_toBottomOf="@id/number_1_tv"
+                    app:layout_constraintLeft_toRightOf="@id/number_1_tv"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/number_1_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/number_2_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_tutorial_item_to_text"
+                    android:background="@drawable/item_tutorial_number_bg"
+                    android:fontFamily="@font/medium"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textColor="@color/home_tutorial_number_step_text"
+                    android:textSize="@dimen/tutorial_text_size_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/number_1_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/tutorial_padding_item_text"
+                    android:text="@string/open_tiktok_downloader_tutorial_item"
+                    android:textColor="@color/home_tutorial_text_item"
+                    android:textSize="@dimen/tutorial_text_size_content"
+                    app:layout_constraintBottom_toBottomOf="@id/number_2_tv"
+                    app:layout_constraintLeft_toRightOf="@id/number_2_tv"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/number_2_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/number_3_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_tutorial_item_to_text"
+                    android:background="@drawable/item_tutorial_number_bg"
+                    android:fontFamily="@font/medium"
+                    android:gravity="center"
+                    android:text="3"
+                    android:textColor="@color/home_tutorial_number_step_text"
+                    android:textSize="@dimen/tutorial_text_size_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/number_2_tv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/tutorial_padding_item_text"
+                    android:text="@string/paste_link_and_choose_the_type_you_want_download_tutorial_item"
+                    android:textColor="@color/home_tutorial_text_item"
+                    android:textSize="@dimen/tutorial_text_size_content"
+                    app:layout_constraintBottom_toBottomOf="@id/number_3_tv"
+                    app:layout_constraintLeft_toRightOf="@id/number_3_tv"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/number_3_tv" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/view_bottom_gradient"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@drawable/home_bottom_item_gradient"
+            app:layout_constraintTop_toBottomOf="@+id/parent_ct" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

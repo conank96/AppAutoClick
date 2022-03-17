@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/top_gradient"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@drawable/home_top_item_gradient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/confirm_dialog_background">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title_txt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/medium"
+            android:gravity="center"
+            android:text="@string/do_you_like_our_app"
+            android:textColor="@color/confirm_dialog_title_color"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/sad_btn"
+            android:layout_width="0dp"
+            android:layout_height="107dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="31dp"
+            android:background="@drawable/rate_button_selectable"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fun_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_txt" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/sad_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/sad_txt"
+            app:layout_constraintEnd_toEndOf="@+id/sad_btn"
+            app:layout_constraintStart_toStartOf="@+id/sad_btn"
+            app:layout_constraintTop_toTopOf="@+id/sad_btn"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:srcCompat="@drawable/emoji_sad_icon" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sad_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/regular"
+            android:text="@string/not_exactly"
+            android:textColor="@color/item_video_text_percent_color"
+            android:textSize="@dimen/text_14"
+            app:layout_constraintBottom_toBottomOf="@+id/sad_btn"
+            app:layout_constraintEnd_toEndOf="@+id/sad_btn"
+            app:layout_constraintStart_toStartOf="@+id/sad_btn"
+            app:layout_constraintTop_toBottomOf="@+id/sad_img"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <View
+            android:id="@+id/fun_btn"
+            android:layout_width="0dp"
+            android:layout_height="107dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="31dp"
+            android:background="@drawable/rate_button_selectable"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sad_btn"
+            app:layout_constraintTop_toBottomOf="@+id/title_txt" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fun_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/regular"
+            android:text="@string/yes_it_s_cool"
+            android:textColor="@color/item_video_text_percent_color"
+            android:textSize="@dimen/text_14"
+            app:layout_constraintBottom_toBottomOf="@+id/fun_btn"
+            app:layout_constraintEnd_toEndOf="@+id/fun_btn"
+            app:layout_constraintStart_toStartOf="@+id/fun_btn"
+            app:layout_constraintTop_toBottomOf="@+id/fun_img"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/fun_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/fun_txt"
+            app:layout_constraintEnd_toEndOf="@+id/fun_btn"
+            app:layout_constraintStart_toStartOf="@+id/fun_btn"
+            app:layout_constraintTop_toTopOf="@+id/fun_btn"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:srcCompat="@drawable/emoji_fun_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/bottom_gradient"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@drawable/home_bottom_item_gradient"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/top_gradient"
+        app:layout_constraintStart_toStartOf="@+id/top_gradient" />
+</androidx.appcompat.widget.LinearLayoutCompat>

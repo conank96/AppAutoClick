@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sort_by_tv"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/bold"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:singleLine="true"
+            android:text="@string/sort_by"
+            android:textColor="@color/sort_dialog_text_color"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toTopOf="@id/radio_group" />
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <RadioButton
+                android:id="@+id/sort_time_btn"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/common_selectable_transparent"
+                android:buttonTint="@color/radio_button_color"
+                android:ellipsize="start"
+                android:fontFamily="@font/medium"
+                android:paddingStart="8dp"
+                android:singleLine="true"
+                android:text="@string/time"
+                android:textColor="@color/sort_dialog_text_color"
+                android:textSize="16dp"
+                android:theme="@style/ThemeRadioButton"
+                tools:checked="true" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/sort_dialog_line_color" />
+
+            <RadioButton
+                android:id="@+id/sort_title_btn"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/common_selectable_transparent"
+                android:buttonTint="@color/radio_button_color"
+                android:ellipsize="start"
+                android:fontFamily="@font/medium"
+                android:paddingStart="8dp"
+                android:singleLine="true"
+                android:text="@string/alphabet"
+                android:textColor="@color/sort_dialog_text_color"
+                android:textSize="16dp"
+                android:theme="@style/ThemeRadioButton" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/sort_dialog_line_color" />
+
+            <RadioButton
+                android:id="@+id/sort_duration_btn"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/common_selectable_transparent"
+                android:buttonTint="@color/radio_button_color"
+                android:ellipsize="start"
+                android:fontFamily="@font/medium"
+                android:paddingStart="8dp"
+                android:singleLine="true"
+                android:text="@string/duration"
+                android:textColor="@color/sort_dialog_text_color"
+                android:textSize="16dp"
+                android:theme="@style/ThemeRadioButton" />
+
+        </RadioGroup>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/view_top_gradient"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@drawable/home_top_item_gradient"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/parent_ct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/home_tutorial_background"
+            app:layout_constraintTop_toBottomOf="@+id/view_top_gradient">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/like_icon"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:scaleType="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/home_like_icon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/bold"
+                android:maxLines="1"
+                android:text="@string/like_fanpage"
+                android:textColor="@color/home_tutorial_text_item"
+                android:textSize="@dimen/tutorial_text_size_header_item"
+                app:layout_constraintBottom_toBottomOf="@id/like_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/like_icon"
+                app:layout_constraintTop_toTopOf="@id/like_icon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/content_txt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/regular"
+                android:text="@string/get_latest_update_about_features_and_discounts"
+                android:textColor="@color/home_tutorial_text_item"
+                android:textSize="@dimen/tutorial_text_size_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/like_icon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/visit_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/common_selectable_transparent"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="Visit Fanpage"
+                android:textAllCaps="true"
+                android:textColor="#2F80ED"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/content_txt" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/view_bottom_gradient"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@drawable/home_bottom_item_gradient"
+            app:layout_constraintTop_toBottomOf="@+id/parent_ct" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

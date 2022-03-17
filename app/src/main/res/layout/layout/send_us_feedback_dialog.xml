@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="24dp"
+    android:layout_marginLeft="24dp"
+    android:layout_marginEnd="24dp"
+    android:layout_marginRight="24dp"
+    android:orientation="vertical"
+    app:cardCornerRadius="5dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/confirm_dialog_background"
+        android:paddingBottom="24dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/close_image"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="?attr/selectableItemBackground"
+            android:scaleType="centerInside"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/closed_icon" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:fontFamily="@font/bold"
+            android:text="@string/send_us_feedback"
+            android:textColor="@color/item_video_text_percent_color"
+            android:textSize="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/close_image" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/cant_download_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/rate_button_selectable"
+            android:fontFamily="@font/regular"
+            android:padding="6dp"
+            android:text="@string/can_t_download"
+            android:textColor="@color/item_video_text_percent_color"
+            android:textSize="@dimen/text_14"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_txt" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/download_slow_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/rate_button_selectable"
+            android:fontFamily="@font/regular"
+            android:padding="6dp"
+            android:text="@string/download_slow"
+            android:textColor="@color/item_video_text_percent_color"
+            android:textSize="@dimen/text_14"
+            app:layout_constraintLeft_toRightOf="@id/cant_download_txt"
+            app:layout_constraintTop_toTopOf="@id/cant_download_txt" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/cant_save_gallery_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rate_button_selectable"
+            android:fontFamily="@font/regular"
+            android:padding="6dp"
+            android:text="@string/can_t_save_to_gallery"
+            android:textColor="@color/item_video_text_percent_color"
+            android:textSize="@dimen/text_14"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cant_download_txt" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/low_video_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/rate_button_selectable"
+            android:fontFamily="@font/regular"
+            android:padding="6dp"
+            android:text="@string/low_video_quality"
+            android:textColor="@color/item_video_text_percent_color"
+            android:textSize="@dimen/text_14"
+            app:layout_constraintLeft_toRightOf="@id/cant_save_gallery_txt"
+            app:layout_constraintTop_toTopOf="@id/cant_save_gallery_txt" />
+
+        <View
+            android:id="@+id/view_edt"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text_send_feedback_bg"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cant_save_gallery_txt" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/des_edt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edt_background"
+            android:ellipsize="start"
+            android:fontFamily="@font/regular"
+            android:hint="@string/enter_your_feedback"
+            android:maxHeight="95dp"
+            android:padding="10dp"
+            app:layout_constraintLeft_toLeftOf="@id/view_edt"
+            app:layout_constraintRight_toRightOf="@id/view_edt"
+            app:layout_constraintTop_toBottomOf="@id/cant_save_gallery_txt"
+            app:layout_constraintTop_toTopOf="@id/view_edt" />
+
+        <View
+            android:id="@+id/send_feed_back_btn"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="48dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/send_feedback_button_bg"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_edt" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bold"
+            android:text="@string/send_us_feedback"
+            android:textColor="@color/send_feedback_text_color"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="@id/send_feed_back_btn"
+            app:layout_constraintLeft_toLeftOf="@id/send_feed_back_btn"
+            app:layout_constraintRight_toRightOf="@id/send_feed_back_btn"
+            app:layout_constraintTop_toTopOf="@id/send_feed_back_btn" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

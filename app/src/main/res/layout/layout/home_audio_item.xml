@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="state"
+            type="com.example.tiktok.screen.home.model.HomeDataItemState" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/top_gradient"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@drawable/home_top_item_gradient"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/parent_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/item_holder_bg"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_gradient"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_gradient">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_video_cv"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/title">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/audio_img"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/play_img"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/home_selectable_audio_item_bg"
+                        android:scaleType="centerInside"
+                        app:layout_constraintBottom_toBottomOf="@+id/audio_img"
+                        app:layout_constraintEnd_toEndOf="@+id/audio_img"
+                        app:layout_constraintStart_toStartOf="@+id/audio_img"
+                        app:layout_constraintTop_toTopOf="@+id/audio_img"
+                        app:srcCompat="@drawable/home_item_music_icon" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/medium"
+                android:maxLines="2"
+                android:textColor="@color/item_catch_title_color"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/card_video_cv"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/user_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/regular"
+                android:singleLine="true"
+                android:textColor="@color/item_catch_title_color"
+                android:textSize="@dimen/text_14"
+                app:layout_constraintStart_toStartOf="@+id/title"
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                app:layout_constraintEnd_toEndOf="@id/title"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/duration_time_txt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/regular"
+                android:singleLine="true"
+                android:textSize="@dimen/text_14"
+                app:layout_constraintStart_toStartOf="@+id/title"
+                app:layout_constraintTop_toBottomOf="@+id/user_name"
+                app:layout_constraintEnd_toEndOf="@id/title"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/downloading_layout"
+                home_item_state="@{state}"
+                state_valid_flag="@{state.PENDING.value|state.DOWNLOADING.value|state.PAUSED.value|state.ERROR.value}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="@id/title"
+                app:layout_constraintStart_toStartOf="@id/card_video_cv"
+                app:layout_constraintTop_toBottomOf="@id/card_video_cv">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/fail_img"
+                    home_item_state="@{state}"
+                    state_valid_flag="@{state.ERROR.value}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@+id/fail_txt"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/home_item_failure_icon"
+                    tools:visibility="invisible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/fail_txt"
+                    home_item_state="@{state}"
+                    state_valid_flag="@{state.ERROR.value}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="@font/medium"
+                    android:text="@string/download_fail"
+                    android:textColor="@color/item_catch_download_fail_color"
+                    android:textSize="@dimen/text_16"
+                    app:layout_constraintBottom_toBottomOf="@id/fail_img"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/fail_img"
+                    app:layout_constraintTop_toTopOf="@id/fail_img"
+                    tools:visibility="invisible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/pending_txt"
+                    home_item_state="@{state}"
+                    state_valid_flag="@{state.DOWNLOADING.value | state.PAUSED.value | state.PENDING.value}"
+                    text_progress_with_state="@{state}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:gravity="start"
+                    android:textColor="@color/home_header_status_text"
+                    android:textSize="@dimen/text_16"
+                    app:layout_constraintEnd_toStartOf="@id/progress_percent_txt"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Pending"
+                    tools:visibility="visible" />
+
+                <com.example.tiktok.ui.DownloadProgressView
+                    android:id="@+id/downloading_progress"
+                    home_item_state="@{state}"
+                    state_valid_flag="@{state.DOWNLOADING.value|state.PAUSED.value|state.PENDING.value}"
+                    android:layout_width="0dp"
+                    android:layout_height="7dp"
+                    android:layout_marginTop="4dp"
+                    app:background_color="@color/progress_bg"
+                    app:layout_constraintEnd_toEndOf="@+id/progress_percent_txt"
+                    app:layout_constraintStart_toStartOf="@+id/pending_txt"
+                    app:layout_constraintTop_toBottomOf="@+id/pending_txt"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/progress_percent_txt"
+                    home_item_state="@{state}"
+                    state_valid_flag="@{state.DOWNLOADING.value|state.PAUSED.value}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:gravity="end"
+                    android:textColor="@color/home_header_status_text"
+                    android:textSize="@dimen/text_14"
+                    app:layout_constraintBottom_toBottomOf="@+id/pending_txt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/pending_txt"
+                    app:layout_constraintTop_toTopOf="@+id/pending_txt"
+                    tools:text="90%"
+                    tools:visibility="visible" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/line_button"
+                home_item_state="@{state}"
+                state_valid_flag="@{state.PENDING.value|state.DOWNLOADING.value|state.PAUSED.value|state.ERROR.value|state.COMPLETED.value}"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/item_catch_line_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/downloading_layout"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/pause_resume_btn"
+                home_item_state="@{state}"
+                state_valid_flag="@{state.PENDING.value|state.DOWNLOADING.value|state.PAUSED.value|state.ERROR.value}"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:background="@drawable/home_selectable_catch_item_bg"
+                app:layout_constraintEnd_toStartOf="@+id/line_button_vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line_button"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/line_button_vertical"
+                home_item_state="@{state}"
+                state_valid_flag="@{state.PENDING.value|state.DOWNLOADING.value|state.PAUSED.value|state.ERROR.value}"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/item_catch_line_color"
+                app:layout_constraintBottom_toBottomOf="@+id/pause_resume_btn"
+                app:layout_constraintEnd_toStartOf="@+id/delete_btn"
+                app:layout_constraintStart_toEndOf="@+id/pause_resume_btn"
+                app:layout_constraintTop_toTopOf="@+id/pause_resume_btn"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/des_button_pause"
+                home_item_state="@{state}"
+                image_pause_resume_with_state="@{state}"
+                state_valid_flag="@{state.PENDING.value|state.DOWNLOADING.value|state.PAUSED.value|state.ERROR.value}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:drawableLeftCompat="@drawable/home_item_pause_icon"
+                android:drawablePadding="4dp"
+                android:fontFamily="@font/medium"
+                android:gravity="center"
+                android:text="@string/pause"
+                android:textColor="@color/item_catch_pause_color"
+                app:layout_constraintBottom_toBottomOf="@+id/pause_resume_btn"
+                app:layout_constraintEnd_toStartOf="@+id/line_button_vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/line_button_vertical"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/delete_btn"
+                home_item_state="@{state}"
+                state_valid_flag="@{state.PENDING.value|state.DOWNLOADING.value|state.PAUSED.value|state.ERROR.value}"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:background="@drawable/home_selectable_catch_item_bg"
+                app:layout_constraintBottom_toBottomOf="@+id/pause_resume_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/line_button_vertical"
+                app:layout_constraintTop_toTopOf="@+id/pause_resume_btn"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/des_button_delete"
+                home_item_state="@{state}"
+                state_valid_flag="@{state.PENDING.value|state.DOWNLOADING.value|state.PAUSED.value|state.ERROR.value}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:drawableLeftCompat="@drawable/home_item_trash_icon"
+                android:drawablePadding="4dp"
+                android:fontFamily="@font/medium"
+                android:gravity="center"
+                android:text="@string/delete"
+                android:textColor="@color/item_catch_delete_color"
+                app:layout_constraintBottom_toBottomOf="@+id/delete_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/line_button_vertical"
+                app:layout_constraintTop_toTopOf="@+id/line_button_vertical"
+                app:layout_constraintVertical_chainStyle="spread_inside"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/set_btn"
+                home_item_state="@{state}"
+                state_valid_flag="@{state.COMPLETED.value}"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:background="@drawable/home_selectable_catch_item_bg"
+                app:layout_constraintEnd_toStartOf="@+id/line_vertical_left"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line_button"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/des_button_set"
+                home_item_state="@{state}"
+                state_valid_flag="@{state.COMPLETED.value}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:drawableLeftCompat="@drawable/home_item_set_icon"
+                android:drawablePadding="4dp"
+                android:fontFamily="@font/medium"
+                android:gravity="center"
+                android:text="@string/play"
+                android:textColor="@color/item_catch_set_color"
+                app:layout_constraintBottom_toBottomOf="@+id/set_btn"
+                app:layout_constraintEnd_toEndOf="@+id/set_btn"
+                app:layout_constraintStart_toStartOf="@+id/set_btn"
+                app:layout_constraintTop_toTopOf="@+id/set_btn"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/line_vertical_left"
+                home_item_state="@{state}"
+                state_valid_flag="@{state.COMPLETED.value}"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/item_catch_line_color"
+                app:layout_constraintBottom_toBottomOf="@+id/set_btn"
+                app:layout_constraintEnd_toStartOf="@+id/share_btn"
+                app:layout_constraintStart_toEndOf="@+id/set_btn"
+                app:layout_constraintTop_toBottomOf="@+id/line_button"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/share_btn"
+                home_item_state="@{state}"
+                state_valid_flag="@{state.COMPLETED.value}"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:background="@drawable/home_selectable_catch_item_bg"
+                app:layout_constraintBottom_toBottomOf="@+id/set_btn"
+                app:layout_constraintEnd_toStartOf="@+id/line_vertical_right"
+                app:layout_constraintStart_toEndOf="@+id/line_vertical_left"
+                app:layout_constraintTop_toTopOf="@+id/set_btn"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/des_button_share"
+                home_item_state="@{state}"
+                state_valid_flag="@{state.COMPLETED.value}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:drawableLeftCompat="@drawable/home_item_share_icon"
+                android:drawablePadding="4dp"
+                android:fontFamily="@font/medium"
+                android:gravity="center"
+                android:text="@string/share"
+                android:textColor="@color/item_catch_share_color"
+                app:layout_constraintBottom_toBottomOf="@+id/share_btn"
+                app:layout_constraintEnd_toEndOf="@+id/share_btn"
+                app:layout_constraintStart_toStartOf="@+id/share_btn"
+                app:layout_constraintTop_toTopOf="@+id/share_btn"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/line_vertical_right"
+                home_item_state="@{state}"
+                state_valid_flag="@{state.COMPLETED.value}"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/item_catch_line_color"
+                app:layout_constraintBottom_toBottomOf="@+id/set_btn"
+                app:layout_constraintEnd_toStartOf="@+id/downloaded_delete_btn"
+                app:layout_constraintStart_toEndOf="@+id/share_btn"
+                app:layout_constraintTop_toBottomOf="@+id/line_button"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/downloaded_delete_btn"
+                home_item_state="@{state}"
+                state_valid_flag="@{state.COMPLETED.value}"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:background="@drawable/home_selectable_catch_item_bg"
+                app:layout_constraintBottom_toBottomOf="@+id/set_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/line_vertical_right"
+                app:layout_constraintTop_toTopOf="@+id/set_btn"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/downloaded_des_button_delete"
+                home_item_state="@{state}"
+                state_valid_flag="@{state.COMPLETED.value}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:drawableLeftCompat="@drawable/home_item_trash_icon"
+                android:drawablePadding="4dp"
+                android:fontFamily="@font/medium"
+                android:gravity="center"
+                android:text="@string/delete"
+                android:textColor="@color/item_audio_delete_text"
+                app:layout_constraintBottom_toBottomOf="@+id/downloaded_delete_btn"
+                app:layout_constraintEnd_toEndOf="@+id/downloaded_delete_btn"
+                app:layout_constraintStart_toStartOf="@+id/downloaded_delete_btn"
+                app:layout_constraintTop_toTopOf="@+id/downloaded_delete_btn"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/download_btn"
+                home_item_state="@{state}"
+                state_valid_flag="@{state.IDLE.value}"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/home_item_download_watermark_button_selector"
+                android:fontFamily="@font/medium"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:text="@string/audio"
+                android:textColor="@color/item_home_type_text_color"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_video_cv"
+                tools:visibility="invisible" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/download_icon"
+                home_item_state="@{state}"
+                state_valid_flag="@{state.IDLE.value}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginLeft="22dp"
+                app:layout_constraintBottom_toBottomOf="@+id/download_btn"
+                app:layout_constraintStart_toStartOf="@+id/download_btn"
+                app:layout_constraintTop_toTopOf="@+id/download_btn"
+                app:srcCompat="@drawable/home_item_download_watermark_icon"
+                tools:visibility="invisible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/bottom_gradient"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@drawable/home_bottom_item_gradient"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
